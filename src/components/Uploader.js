@@ -1,8 +1,10 @@
-import React, {useCallback} from 'react'
+import React, {useCallback, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
-import {Button, Jumbotron} from 'react-bootstrap'
+import {Button, Card, Jumbotron, ProgressBar} from 'react-bootstrap'
 import { Storage } from 'aws-amplify'
 import ConvertTiff from 'tiff-to-png'
+import Caro from "./ViewCells";
+import {NavLink} from "react-router-dom";
 // import sharp from 'sharp';
 // import {decode} from 'tiff';
 // const options = {
@@ -78,8 +80,11 @@ import ConvertTiff from 'tiff-to-png'
 //     </div>
 //   )
 // }
-class S3ImageUpload extends React.Component {
-  onChange(e) {
+function S3ImageUpload() {
+  let [uploading, setUploading] = useState(false)
+  let [uploaded, setUploaded] = useState(false)
+  const onChange = (e) => {
+    setUploading(true)
     const file = e.target.files[0];
     console.log('file',file);
     console.log('file.name',file.name);
@@ -106,19 +111,43 @@ class S3ImageUpload extends React.Component {
       contentType: 'image/tif'
     })
       .then (result => {
-        console.log(result)}
+          console.log(result)
+          setUploading(false)
+          setUploaded(true)
+          e.target.value = null
+        }
         )
       .catch(err => console.log(err));
   }
+   return <div>
+      <Jumbotron>
+      <Card>
+        {/*<Card.Img variant="top" src={require('./../images/uploadimage.jpeg')} />*/}
+        {!uploaded ? <Card.Body>
+          <Card.Title>Upload your image by clicking below</Card.Title>
+          <Card.Text>
+            With Table 6 Analytics, the power is in your hands.
+          </Card.Text>
+          <input
+            type="file" accept='image/tif'
+            onChange={(e) => onChange(e)}
+          />
+        </Card.Body>
+        : <Card.Body>
+            <Card.Title>Great! Image was uploaded.</Card.Title>
+            <Card.Text>
+              Now you can upload another image or view your images.
+            </Card.Text>
+            <Button onClick={()=>setUploaded(false)} variant="primary">Upload Another Image</Button>
+            { ' '}
+            or
+            <NavLink to="/viewcells"> View Images </NavLink>
+          </Card.Body>}
+      </Card>
+        {uploading && <ProgressBar striped animated variant="success" now={40} />}
 
-  render() {
-    return (
-      <input
-        type="file" accept='image/tif'
-        onChange={(e) => this.onChange(e)}
-      />
-    )
-  }
+      </Jumbotron>
+    </div>
 }
 export default S3ImageUpload
 
