@@ -1,0 +1,14 @@
+{
+	"auth": {
+		"cognito7d729e13": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"storage": {
+		"nihstorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

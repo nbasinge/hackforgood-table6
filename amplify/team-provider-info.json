@@ -1,0 +1,21 @@
+{
+    "nih": {
+        "awscloudformation": {
+            "AuthRoleName": "table6-20190610113541-authRole",
+            "UnauthRoleArn": "arn:aws:iam::708475582414:role/table6-20190610113541-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::708475582414:role/table6-20190610113541-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "table6-20190610113541-deployment",
+            "UnauthRoleName": "table6-20190610113541-unauthRole",
+            "StackName": "table6-20190610113541",
+            "StackId": "arn:aws:cloudformation:us-east-1:708475582414:stack/table6-20190610113541/67a2c7e0-8b95-11e9-8b6e-0ab87eb901cc"
+        },
+        "categories": {
+            "auth": {
+                "cognito7d729e13": {
+                    "hostedUIProviderCreds": "[]"
+                }
+            }
+        }
+    }
+}
