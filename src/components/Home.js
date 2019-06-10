@@ -12,6 +12,7 @@ function Home() {
     <p>
       {/*<Button variant="primary" onClick={()=>{return <Redirect to="/mydropzone"> Dashboard </Redirect>}}>Upload Image</Button>*/}
       <NavLink to="/mydropzone"> Upload Image </NavLink>
+      <NavLink to="/viewcells"> View Images </NavLink>
     </p>
   </Jumbotron>}
 

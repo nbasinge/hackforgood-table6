@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import AppAuth2 from './AppAuth2';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(<AppAuth2 />, document.getElementById('root'));
 
