@@ -66,9 +66,9 @@ function ViewCells() {
 
       {/*<Card.Img variant="top" src="holder.js/100px180" />*/}
       <Card.Body>
-        <Card.Title>{`Cell Sample ${activeCell+1}`}</Card.Title>
+        <Card.Title>{`Cell Sample ${activeCell+1}`} <Button variant="primary">Download Sample</Button></Card.Title>
         <Card.Text>
-          Some images to scroll through to look at patterns or to analyze further. <Button variant="primary">Analyze</Button>
+          Some images to scroll through to look at patterns or to analyze further. <Button variant="success">Analyze</Button>
 
         </Card.Text>
         <Caro pictures={pictures[activeCell]} activeCell={activeCell}/>
